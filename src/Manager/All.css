@@ -1,0 +1,281 @@
+.ScrollBar {
+  background-color: #343a40;
+  display: block;
+  width: 12%;
+  height: 100vh;
+  padding-left: 10px;
+}
+
+.pagesAd {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-top: 1px solid white;
+  width: 11%;
+  padding-top: 10px;
+}
+
+.pagesAd img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50px;
+}
+
+.pagesAd h1 {
+  font-size: 17px;
+  color: white;
+}
+
+.pagesBlock {
+  width: 90%;
+  height: 40px;
+  /* background-color: #fff; */
+  margin: auto;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  /* padding-left: 10px; */
+  border-radius: 5px;
+  color: white;
+  transition: 0.3s;
+  justify-content: center;
+}
+
+.pagesBlock:hover {
+  background-color: #0a58ca;
+  cursor: pointer;
+}
+
+.pagesBlockMain {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  color: #fff;
+  margin-top: 10px;
+}
+
+.adminPage1 {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: auto;
+}
+
+.adminPage1 h1 {
+  font-weight: normal;
+}
+
+.inpForm1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 35%;
+  position: relative;
+}
+
+.inpForm1 input {
+  width: 100%;
+  height: 40px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  z-index: 9;
+}
+
+.inpForm1 button {
+  height: 42px;
+  border: 1px solid gray;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  background: none;
+  z-index: 10;
+}
+
+.inpForm1 div {
+  width: 85%;
+  font-size: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  /* background: #000; */
+  height: 42px;
+  transition: 0.3s;
+}
+
+.inpForm1 div:hover {
+  cursor: pointer;
+  background-color: rgba(128, 128, 128, 0.202);
+}
+
+.inpForm1 div h2:nth-child(1) {
+  font-size: 15px;
+  font-weight: 300;
+  background: rgba(128, 128, 128, 0.3);
+  width: 40%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid gray;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.inpForm1 div h2:nth-child(2) {
+  font-size: 15px;
+  font-weight: 300;
+  background: white;
+  width: 60%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  padding-left: 10px;
+  border: 1px solid gray;
+}
+
+.bigOrder {
+  width: 99%;
+  height: 90vh;
+  margin: auto;
+  /* background: #000; */
+  /* border: 1px solid gray; */
+  overflow-y: scroll;
+}
+
+.minOrder {
+  display: flex;
+  justify-content: space-between;
+  width: 99%;
+  /* margin: 10px; */
+  padding-left: 10px;
+  height: 60px;
+  padding-top: 10px;
+  /* border: 1px solid gray; */
+  border-bottom: 1px solid gray;
+}
+
+/* .minOrder:nth-child(n+3) {
+    background: #000;
+} */
+
+.minOrder:hover {
+  background: rgba(128, 128, 128, 0.304);
+  cursor: pointer;
+}
+
+.mainOrder {
+  width: 70%;
+  border: 1px solid gray;
+  border-bottom: none;
+  margin: auto;
+  /* padding: 10px; */
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.minOrder img {
+  width: 40px;
+  height: 40px;
+  border-radius: 100%;
+}
+
+.minOrder h1 {
+  font-size: 17px;
+  font-weight: 400;
+  margin-left: 10px;
+}
+
+.opacityDiv {
+  width: 60%;
+  /* height: 100vh; */
+  /* background: #000; */
+  display: none;
+}
+
+.addOrder {
+  background: #fff;
+  width: 300px;
+  height: auto;
+  box-shadow: 0 0 5px black;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 200px;
+  left: 40%;
+  border-radius: 10px;
+  padding: 10px;
+  transition: .3s;
+  padding-top: 35px;
+}
+
+.addOrder input {
+  width: 95%;
+  height: 30px;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+.addOrder button {
+  width: 100%;
+  height: 35px;
+  margin-top: 10px;
+}
+
+.iconCLose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  /* background: #00000037; */
+}
+
+
+
+
+.addOrder2 {
+  background: #fff;
+  width: 300px;
+  height: auto;
+  box-shadow: 0 0 5px black;
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 200px;
+  left: 40%;
+  border-radius: 10px;
+  padding: 10px;
+  transition: .3s;
+  padding-top: 35px;
+}
+
+.addOrder2 input {
+  width: 95%;
+  height: 30px;
+  padding-left: 10px;
+  margin-top: 10px;
+}
+
+.addOrder2 button {
+  width: 100%;
+  height: 35px;
+  margin-top: 10px;
+}
+
+/*
+webabbas9@gmail.com
+Менеджер
+Редактировать
+*/
