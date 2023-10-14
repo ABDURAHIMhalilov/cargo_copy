@@ -1,0 +1,72 @@
+.bigCard {
+    width: 300px;
+    text-align: center;
+    /* background-color: #000; */
+    /* margin: auto; */
+  }
+  
+  .bigCard img {
+    width: 100%;
+    height: 70px;
+  }
+  
+  .bigCard input {
+    width: 98%;
+    height: 50px;
+    border: 1px solid gray;
+  }
+  
+  .bigCard input:nth-child(1) {
+    border-top-right-radius: 5px;
+    border-top-left-radius: 5px;
+    border-bottom: none;
+    padding-left: 10px;
+  }
+  .bigCard input:nth-child(2) {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+  }
+  .bigCard input:nth-child(3) {
+    border-bottom-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    margin-bottom: 10px;
+    padding-left: 10px;
+  }
+  
+  .bigCard button {
+    width: 100%;
+    height: 40px;
+    background-color: #800000;
+    border: none;
+    color: white;
+    font-size: 17px;
+    border-radius: 7px;
+    margin-bottom: 10px;
+  }
+  
+  .aForm {
+    margin-top: 10px;
+  }
+  
+  .aForm a {
+    margin-top: 5px;
+    color: #800000;
+  }
+  
+  .bigDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 700px;
+  }
+
+  .checBox {
+    display: flex;
+    align-items: center;
+  }
+
+  .checBox input {
+    width: 20px;
+  }
