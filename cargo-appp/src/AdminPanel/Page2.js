@@ -99,48 +99,54 @@ export default function Page2() {
     //   .catch((err) => {
     //     console.log(err);
     //   });
-    var data = new FormData();
-    data.append("menegerid", document.querySelector(".select1").value);
-    data.append("deckription", document.querySelector(".textarea").value);
-    data.append("creator", localStorage.getItem("id"));
-    data.append(
-      "oredersid",
-      JSON.parse(document.querySelector(".select2").value).id
-    );
-    data.append("status", 1);
-    data.append("adressuser", target);
+    var a = document.querySelectorAll("#select1")
+    for (let i = 0; i < a.length; i++) {
+      var data = new FormData();
+      data.append("menegerid", JSON.parse(a[i].value).id);
+      data.append("deckription", document.querySelectorAll("#textarea")[i].value);
+      data.append("creator", localStorage.getItem("id"));
+      data.append(
+        "oredersid",
+        JSON.parse(document.querySelectorAll("#select2")[i].value).id
+      );
+      data.append("status", 1);
+      data.append("adressuser", JSON.parse(document.querySelectorAll('#select2')[i].value).sender);
 
-    axios
-      .post(`${url}/api/zakaz`, data, {
-        headers: { Authorization: "Bearer: " + localStorage.getItem("token") },
-      })
-      .then((res) => {
-        alert("succes");
-        // window.location.reload();
-        axios
-          .post(
-            `${url}/api/points`,
-            {
-              status: 1,
-              zakaz_id: res.data.id,
-            },
-            {
-              headers: {
-                Authorization: "Bearer: " + localStorage.getItem("token"),
+      axios
+        .post(`${url}/api/zakaz`, data, {
+          headers: {
+            Authorization: "Bearer: " + localStorage.getItem("token"),
+          },
+        })
+        .then((res) => {
+          alert("succes");
+          // window.location.reload();
+          axios
+            .post(
+              `${url}/api/points`,
+              {
+                status: 1,
+                zakaz_id: res.data.id,
               },
-            }
-          )
-          .then((res2) => {
-            console.log(res2.data);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-        // document.querySelector(".addOrder").style = "opacity: 0;";
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+              {
+                headers: {
+                  Authorization: "Bearer: " + localStorage.getItem("token"),
+                },
+              }
+            )
+            .then((res2) => {
+              console.log(res2.data);
+              window.location.reload()
+            })
+            .catch((err) => {
+              console.log(err);
+            });
+          // document.querySelector(".addOrder").style = "opacity: 0;";
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
   }
   function handlePress6() {
     var tokenUser = localStorage.getItem("token");
@@ -299,41 +305,83 @@ export default function Page2() {
           className="iconCLose"
           onClick={() => handlePress4()}
         />
-        {lengthh.map((item) => {
-          return (
-            <div style={{ marginTop: 10 }}>
-              <select
-                className="select1"
-                style={{ width: "100%", height: 35, marginTop: 10 }}
-              >
-                {managers.map((item) => {
-                  return <option value={item.id}>{item.firstname}</option>;
-                })}
-              </select>
-              <textarea
-                style={{ maxWidth: "98%", minWidth: "98%", marginTop: 10 }}
-                placeholder="desckription"
-                className="textarea"
-              />
-              <select
-                onChange={(e) => {
-                  console.log(JSON.parse(e.target.value));
-                  setTarget(JSON.parse(e.target.value).sender);
-                  setSelectedAddress(JSON.parse(e.target.value).insender);
-                }}
-                className="select2"
-                style={{ width: "100%", height: 35, marginTop: 10 }}
-              >
-                {order.map((item) => {
-                  return (
-                    <option value={JSON.stringify(item)}>{item.trek_id}</option>
-                  );
-                })}
-              </select>
-            </div>
-          );
-        })}
-        <h1>{selectedAddress.map((item) => item.sender)}</h1>
+        <div className="plusZakaz">
+          <select className="select1" id="select1">
+            {managers.map((item) => {
+              return <option value={item.id}>{item.firstname}</option>;
+            })}
+          </select>
+          <select
+            // onChange={(e) => {
+            //   console.log(JSON.parse(e.target.value));
+            //   setTarget(JSON.parse(e.target.value).sender);
+            //   setSelectedAddress(JSON.parse(e.target.value).insender);
+            // }}
+            className="select2"
+            id="select2"
+          >
+            {order.map((item) => {
+              return (
+                <option value={JSON.stringify(item)}>{item.trek_id}</option>
+              );
+            })}
+          </select>
+          <textarea
+            placeholder="desckription"
+            className="textarea"
+            id="textarea"
+          />
+        </div>
+        <button
+          onClick={() => {
+            var aa = `<select
+              className="select1"
+              id='select1'
+            >`;
+            {
+              managers.map((item) => {
+                aa =
+                  aa + `<option value="${item.id}">${item.firstname}</option>`;
+              });
+            }
+            aa = aa + `</select>`;
+            aa =
+              aa +
+              `<select
+             className="select2"
+                id='select2'
+              >`;
+            {
+              order.map((item) => {
+                aa =
+                  aa +
+                  `<option value='${JSON.stringify(item)}'>${
+                    item.trek_id
+                  }</option>`;
+              });
+            }
+            aa =
+              aa +
+              `</select>
+            <textarea
+              placeholder="desckription"
+              className="textarea"
+              id='textarea'
+            />`;
+            document.querySelector(".plusZakaz").innerHTML += aa;
+            // var a = document.querySelectorAll("#select2");
+            // for (let i = 0; i < a.length; i++) {
+            //   console.log(a[i].value, "vbhjkl;");
+            // }
+
+            // onChange={(e) => {
+            //   setTarget(${JSON.parse(e.target.value).sender});
+            //   setSelectedAddress(${JSON.parse(e.target.value).insender});
+            // }}
+          }}
+        >
+          plus
+        </button>
         <button onClick={() => handlePress5()}>Add</button>
       </div>
       <div className="addOrder2">
